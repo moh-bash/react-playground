@@ -1,8 +1,8 @@
-export function Posts() {
+export function Posts({title, description}) {
     return (
         <div className={"posts box"}>
-            <h2>This is title for Posts</h2>
-            <p>this is a simple post</p>
+            <h2>{title}</h2>
+            <p>{description}</p>
         </div>
-    )
+    );
 }
