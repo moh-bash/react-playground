@@ -51,3 +51,7 @@ header{
   background-image: linear-gradient(to top, #10427f, #165BB0);
   cursor: pointer;
 }
+
+.button:hover{
+  background-image: linear-gradient(to top, #106e7f, #1691b0);
+}
