@@ -1,0 +1,53 @@
+header{
+  background-color: black;
+  margin: 0;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.Sction{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 20px auto;
+}
+
+.box {
+  background-color: var(--code-bg);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.conposts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 69%;
+}
+.posts {
+  text-align  : center;
+}
+.posts h2 {
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--accent-border);
+}
+
+.saidbar {
+  width: 25%;
+  direction: flex;
+  flex: 0 0 25%;
+}
+
+.button {
+  width: 46% ;
+  margin: 5px 5px;
+  direction: block;
+  border-radius: 20px;
+  text-align: center;
+  padding: 15px 0;
+  color: white;
+  background-image: linear-gradient(to top, #10427f, #165BB0);
+  cursor: pointer;
+}
