@@ -24,7 +24,7 @@ export function Saidbar() {
   ));
   return (
     <div className="saidbar box">
-      {buttonList}
+      {buttonList} 
     </div>
   );
 }
