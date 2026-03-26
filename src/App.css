@@ -55,3 +55,7 @@ header{
 .button:hover{
   background-image: linear-gradient(to top, #106e7f, #1691b0);
 }
+
+li {
+  list-style: none;
+}

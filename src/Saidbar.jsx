@@ -1,6 +1,9 @@
 import './App.css'
 import { Button } from './Button'
 export function Saidbar() {
+    const buttonData =[
+        { id: "1", text: "Button 1" },
+    ]
     return (
         <div className="saidbar box">
             <Button text="Button 1">
