@@ -1,13 +1,11 @@
 import './App.css'
-import { Header } from './Header'
-import { Sction } from './Sction'
+import Formcom from './Formcom'
 
 function App() {
 
   return (
     <>
-      <Header />
-      <Sction />
+      <Formcom />
     </>
   )
 }
