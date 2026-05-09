@@ -1,121 +1,95 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import "./App.css";
+import resultReducer from "./Reducers/resultReducer";
+
+import { useReducer, useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
+	const [firstNumberInput, setFirstNumberInput] = useState(null);
+	const [secondNumberInput, setSecondNumberInput] = useState(null);
 
-  return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+  const [state, dispatch] = useReducer(resultReducer, null);
 
-      <div className="ticks"></div>
+	// EVENT HANDLERS
+	function handleSumClick() {
+		dispatch({
+			type: "SUM",
+			payload: {
+				num1: firstNumberInput,
+				num2: secondNumberInput
+			}
+		});
+	}
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+	function handleSubClick() {
+		dispatch({
+			type: "SUB",
+			payload: {
+				num1: firstNumberInput,
+				num2: secondNumberInput
+			}
+		});
+	}
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+	function handleMultClick() {
+		dispatch({
+			type: "MULT",
+			payload: {
+				num1: firstNumberInput,
+				num2: secondNumberInput
+			}
+		});
+	}
+
+	function handleDivClick() {
+		dispatch({
+			type: "DIV",
+			payload: {
+				num1: firstNumberInput,
+				num2: secondNumberInput
+			}
+		});
+	}
+
+	return (
+		<div className="App">
+			<div
+				style={{
+					height: "100vh",
+					display: "flex",
+					justifyContent: "center",
+					flexDirection: "column",
+					alignItems: "center",
+					background: "teal",
+				}}
+			>
+				{/* FIRST INPUT */}
+				<label>First Number</label>
+				<input
+					value={firstNumberInput}
+					onChange={(e) => setFirstNumberInput(e.target.value)}
+				/>
+
+				{/* SECOND INPUT */}
+				<label>Second Number</label>
+				<input
+					value={secondNumberInput}
+					onChange={(e) => setSecondNumberInput(e.target.value)}
+				/>
+
+				<button onClick={handleSumClick}>sum</button>
+
+				<button onClick={handleSubClick}>subtract</button>
+
+				<button onClick={handleMultClick}>multiply</button>
+
+				<button onClick={handleDivClick}>divide</button>
+
+				<hr />
+
+				<h2>{state}</h2>
+			</div>
+		</div>
+	);
 }
 
-export default App
+export default App;
